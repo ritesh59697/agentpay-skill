@@ -1,0 +1,16 @@
+{
+  "atlantic-testnet": {
+    "name": "Pharos Atlantic Testnet",
+    "chainId": 688689,
+    "rpcUrl": "https://atlantic.dplabs-internal.com",
+    "explorerUrl": "https://atlantic.pharosscan.xyz",
+    "nativeCurrency": {
+      "name": "Pharos",
+      "symbol": "PHAROS",
+      "decimals": 18
+    },
+    "tokens": {
+      "USDC": "0xE0BE08c77f415F577A1B3A9aD7a1Df1479564ec8"
+    }
+  }
+}
