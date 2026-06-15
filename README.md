@@ -83,13 +83,37 @@ forge script script/DeployAgentPay.s.sol:DeployAgentPay \
   --broadcast
 ```
 
+### 5. Demo Usage (Agent Flow End-to-End)
+Show a concrete example of setting budgets, executing payments, and querying state using `cast`:
+
+```bash
+# Set a 5 USDC budget for an agent
+cast send 0xEfDdb2C5788E426d0AE18a62B74a84A8c86972dE \
+  "setBudget(address,uint256)" 0xAGENT_ADDRESS 5000000 \
+  --private-key $PRIVATE_KEY --rpc-url $RPC
+
+# Agent pays 0.01 USDC for API access
+cast send 0xEfDdb2C5788E426d0AE18a62B74a84A8c86972dE \
+  "pay(address,address,uint256)" $USDC $RECIPIENT 10000 \
+  --private-key $AGENT_KEY --rpc-url $RPC
+
+# Check remaining budget
+cast call 0xEfDdb2C5788E426d0AE18a62B74a84A8c86972dE \
+  "getRemainingBudget(address)(uint256)" 0xAGENT_ADDRESS \
+  --rpc-url $RPC
+```
+
 Refer to [SKILL.md](file:///Users/ritesh/examples/agentpay-skill/SKILL.md) and [references/agentpay.md](file:///Users/ritesh/examples/agentpay-skill/references/agentpay.md) for full capability details and exact command invocation examples.
+
 
 ---
 
 ## 🌐 Deployed Demo Contract
 
 - **Contract Address**: `0xEfDdb2C5788E426d0AE18a62B74a84A8c86972dE`
-- **PharosScan Verification Link**: [0xEfDdb2C5788E426d0AE18a62B74a84A8c86972dE](https://api.socialscan.io/pharos-atlantic-testnet/v1/explorer/command_api/address/0xefddb2c5788e426d0ae18a62b74a84a8c86972de)
-- **Explorer (SocialScan)**: [0xEfDdb2C5788E426d0AE18a62B74a84A8c86972dE](https://atlantic.pharosscan.xyz/address/0xEfDdb2C5788E426d0AE18a62B74a84A8c86972dE)
+- **Network**: Pharos Atlantic Testnet (Chain ID: 688689)
+- **USDC Token**: `0xE0BE08c77f415F577A1B3A9aD7a1Df1479564ec8`
+- **Explorer**: [https://atlantic.pharosscan.xyz/address/0xEfDdb2C5788E426d0AE18a62B74a84A8c86972dE](https://atlantic.pharosscan.xyz/address/0xEfDdb2C5788E426d0AE18a62B74a84A8c86972dE)
+- **Verified Contract**: [https://atlantic.pharosscan.xyz/address/0xEfDdb2C5788E426d0AE18a62B74a84A8c86972dE](https://atlantic.pharosscan.xyz/address/0xEfDdb2C5788E426d0AE18a62B74a84A8c86972dE)
+
 
