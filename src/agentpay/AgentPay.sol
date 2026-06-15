@@ -40,12 +40,12 @@ contract AgentPay {
         require(token == usdc, "Only USDC supported");
         uint256 currentBudget = budgets[msg.sender];
         uint256 currentSpent = spent[msg.sender];
-        
+
         require(currentSpent + amount <= currentBudget, "Budget exceeded");
         require(IERC20(token).balanceOf(address(this)) >= amount, "Insufficient contract balance");
 
         spent[msg.sender] = currentSpent + amount;
-        
+
         bool success = IERC20(token).transfer(payTo, amount);
         require(success, "USDC transfer failed");
 
